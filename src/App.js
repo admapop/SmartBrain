@@ -36,7 +36,7 @@ function App() {
               params={parameters}
             />
       <Navigation />
-      <Logo />
+      <Logo className='level' />
       <Rank />
       <ImageLinkForm />
       {/* <FaceRecognition /> */}
