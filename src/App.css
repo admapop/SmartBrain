@@ -35,7 +35,6 @@
 .center {
   display: flex;
   justify-content: center;
-  z-index: 1;
 }
 
 .particles {
@@ -44,9 +43,5 @@
   right: 0;
   bottom: 0;
   left: 0;
-  /* z-index: -1; */
-}
-
-.level {
-  z-index: 2;
+  z-index: -1;
 }
