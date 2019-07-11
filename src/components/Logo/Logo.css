@@ -1,3 +1,4 @@
 .Tilt {
-    background: linear-gradient(to right, #FED766, #009FB7)
+    background: linear-gradient (to right, #FED766, #009FB7);
+    /* z-index: 2; */
 }

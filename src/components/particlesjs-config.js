@@ -2,7 +2,7 @@ export const parameters = {
     
   "particles": {
     "number": {
-      "value": 152,
+      "value": 100,
       "density": {
         "enable": true,
         "value_area": 800
@@ -66,7 +66,7 @@ export const parameters = {
     }
   },
   "interactivity": {
-    "detect_on": "canvas",
+    "detect_on": "window",
     "events": {
       "onhover": {
         "enable": true,
