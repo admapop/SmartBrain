@@ -59,15 +59,19 @@ class App extends React.Component {
     console.log('click')
   }
 
+  onRouteChange = (route) => {
+    this.setState({route: route});
+  }
+
 render() {
   return (
     <div className="App">
       <Particles className='particles'
               params={parameters}
             />
-      <Navigation />
+      <Navigation onRouteChange={this.onRouteChange} />
       { this.state.route === 'signin' ?
-      <SignIn />
+      <SignIn onRouteChange={this.onRouteChange} />
         : <div>
           <Logo />
           <Rank />
