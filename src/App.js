@@ -8,6 +8,7 @@ import Particles from 'react-particles-js';
 import {parameters} from './components/particlesjs-config'
 import Clarifai from 'clarifai'
 import FaceRecognition from './components/FaceRecognition/FaceRecognition'
+import SignIn from './components/SignIn/SignIn'
 
 const app = new Clarifai.App({
   apiKey: '8819d596f1c74f8ba4d1c6fc5b8d6ae4'
@@ -64,6 +65,7 @@ render() {
               params={parameters}
             />
       <Navigation />
+      <SignIn />
       <Logo />
       <Rank />
       <ImageLinkForm onInputChange={this.onInputChange} onButtonSubmit={this.onButtonSubmit} />
