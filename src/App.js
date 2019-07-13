@@ -81,7 +81,7 @@ render() {
         : (
           this.state.route === 'signin'
           ? <SignIn onRouteChange={this.onRouteChange} />
-          : <Register />
+          : <Register onRouteChange={this.onRouteChange} />
         )
       }
     </div>
