@@ -6,14 +6,9 @@ import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm'
 import Rank from './components/Rank/Rank'
 import Particles from 'react-particles-js';
 import {parameters} from './components/particlesjs-config'
-import Clarifai from 'clarifai'
 import FaceRecognition from './components/FaceRecognition/FaceRecognition'
 import SignIn from './components/SignIn/SignIn'
 import Register from './components/Register/Register'
-
-const app = new Clarifai.App({
-  apiKey: '8819d596f1c74f8ba4d1c6fc5b8d6ae4'
- });
 
  const initialState = {
   input: '',
@@ -70,8 +65,15 @@ class App extends React.Component {
   }
 
   onButtonSubmit = () => {
-    this.setState({imageUrl: this.state.input})
-    app.models.predict(Clarifai.FACE_DETECT_MODEL, this.state.input)
+    this.setState({imageUrl: this.state.input});
+    fetch('http://localhost:3000/imageurl', {
+      method: 'post',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+          input: this.state.input
+      })
+    })
+    .then(response => response.json())
     .then(response => {
       if (response) {
         fetch('http://localhost:3000/image', {
@@ -89,7 +91,7 @@ class App extends React.Component {
       // console.log(response.outputs[0].data.regions[0].region_info.bounding_box)
       this.displayFaceBox(this.calculateFaceLocation(response)); //the output from facelocation is automatically fed into display face box
     })
-    .catch(err => console.log(err));
+    .catch(err => console.log(err, 'dammit'));
   }
 
   onRouteChange = (route) => {
